@@ -15,8 +15,9 @@ class MainPage(BasePage):
         self.click_on_element(question_locator)
 
     @allure.step("Получить ответ по индексу")
-    def get_answer_text(self):
-        answer_element = self.get_text_of_element(MainPageLocators.answer_number)
+    def get_answer_text(self, index):
+        answer_locator = MainPageLocators.answer_number(index)
+        answer_element = self.get_text_of_element(answer_locator)
         return answer_element
 
 
@@ -34,5 +35,5 @@ class MainPage(BasePage):
 
     @allure.step("Перейти на страницу Дзен")
     def switch_to_dzen(self):
-        self.switch_to_new_tab()
+        self.switch_to_last_tab()
         self.wait_for_element(MainPageLocators.DZEN_LOGO)

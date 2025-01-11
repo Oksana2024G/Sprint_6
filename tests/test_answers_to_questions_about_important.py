@@ -10,5 +10,6 @@ class TestAnswersToQuestions:
         main_page = MainPage(driver)
         main_page.wait_for_question_list()
         main_page.click_on_question(question_number)
+        answer_text = main_page.get_answer_text(question_number)
 
-        assert main_page.get_answer_text
+        assert answer_text == expected_text

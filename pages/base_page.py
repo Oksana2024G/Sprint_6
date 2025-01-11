@@ -33,7 +33,7 @@ class BasePage:
 
     @allure.step("Получить текст элемента")
     def get_text_of_element(self, locator):
-        return self.driver.find_element(locator).text
+        return self.driver.find_element(*locator).text
 
     @allure.step("Подождать, пока будет 2 открытых окна браузера")
     def wait_new_window(self, timeout=20):
