@@ -17,4 +17,4 @@ class TestOrderScooter:
         order_page.click_order_button()
         order_page.click_confirm_order_button()
 
-        assert order_page.check_success_message
+        assert order_page.check_success_message()
