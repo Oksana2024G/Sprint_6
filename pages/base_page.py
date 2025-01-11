@@ -40,6 +40,10 @@ class BasePage:
         return WebDriverWait(self.driver, timeout).until(EC.number_of_windows_to_be(2))
 
     @allure.step("Прейти в новое окно браузера")
-    def switch_to_new_tab(self):
+    def switch_to_last_tab(self):
         self.wait_new_window()
-        self.driver.switch_to.window(self.driver.window_handles[1])
+        self.driver.switch_to.window(self.driver.window_handles[-1])
+
+    @allure.step("Получить текущий URL страницы")
+    def get_current_url(self):
+        return self.driver.current_url

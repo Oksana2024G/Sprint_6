@@ -9,13 +9,13 @@ class TestTransitionBetweenPages:
         main_page = MainPage(driver)
         main_page.click_scooter_logo()
 
-        assert driver.current_url == main_site
+        assert main_page.get_current_url() == main_site
 
     @allure.title("Тест перехода по логотипу Яндекс на страницу Дзен")
     def test_click_yandex_logo_open_dzen_page(self, driver):
         main_page = MainPage(driver)
         main_page.click_yandex_logo()
         main_page.switch_to_dzen()
-        current_url = driver.current_url
+        current_url = main_page.get_current_url()
 
         assert current_url == dzen_site
